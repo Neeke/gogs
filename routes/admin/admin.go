@@ -232,6 +232,8 @@ func Config(c *context.Context) {
 	c.Data["GitVersion"] = setting.Git.Version
 	c.Data["Git"] = setting.Git
 
+	c.Data["DisablePersonalRepo"] = setting.DisablePersonalRepo
+
 	type logger struct {
 		Mode, Config string
 	}

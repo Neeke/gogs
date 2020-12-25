@@ -8,15 +8,14 @@
 package main
 
 import (
-	"os"
-
 	"github.com/urfave/cli"
+	"os"
 
 	"github.com/gogs/gogs/cmd"
 	"github.com/gogs/gogs/pkg/setting"
 )
 
-const Version = "0.11.91.0811"
+const Version = "0.11.92.1225"
 
 func init() {
 	setting.AppVer = Version

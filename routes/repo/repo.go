@@ -122,6 +122,11 @@ func CreatePost(c *context.Context, f form.CreateRepo) {
 		return
 	}
 
+	if setting.DisablePersonalRepo && c.User.ID == f.UserID {
+		handleCreateError(c, ctxUser, errors.New(c.Tr("admin.config.disable_personal_repo")), "CreatePost", CREATE, nil)
+		return
+	}
+
 	repo, err := models.CreateRepository(c.User, ctxUser, models.CreateRepoOptions{
 		Name:        f.RepoName,
 		Description: f.Description,

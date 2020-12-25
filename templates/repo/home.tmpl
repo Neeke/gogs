@@ -3,6 +3,12 @@
 	{{template "repo/header" .}}
 	<div class="ui container">
 		{{template "base/alert" .}}
+		{{if .DisablePersonalRepo}}
+			<div class="ui info message">
+				<p>{{.i18n.Tr "admin.config.disable_personal_repo" | Str2HTML}}</p>
+			</div>
+		{{end}}
+		
 		{{if .PageIsRepoHome}}
 			<p id="repo-desc">
 				{{if .Repository.Description}}<span class="description has-emoji">{{.Repository.Description | NewLine2br | Str2HTML}}</span>{{else}}<span class="no-description text-italic">{{.i18n.Tr "repo.no_desc"}}</span>{{end}}

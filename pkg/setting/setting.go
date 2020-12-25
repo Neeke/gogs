@@ -71,6 +71,7 @@ var (
 	LocalURL             string
 	OfflineMode          bool
 	DisableRouterLog     bool
+	DisablePersonalRepo	 bool
 	CertFile             string
 	KeyFile              string
 	TLSMinVersion        string
@@ -489,6 +490,7 @@ func NewContext() {
 	LocalURL = sec.Key("LOCAL_ROOT_URL").MustString(string(Protocol) + "://localhost:" + HTTPPort + "/")
 	OfflineMode = sec.Key("OFFLINE_MODE").MustBool()
 	DisableRouterLog = sec.Key("DISABLE_ROUTER_LOG").MustBool()
+	DisablePersonalRepo = sec.Key("DISABLE_PERSONAL_REPO").MustBool()
 	StaticRootPath = sec.Key("STATIC_ROOT_PATH").MustString(workDir)
 	AppDataPath = sec.Key("APP_DATA_PATH").MustString("data")
 	EnableGzip = sec.Key("ENABLE_GZIP").MustBool()
